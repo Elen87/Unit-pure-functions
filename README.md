@@ -1,5 +1,5 @@
 # Домашнее задание к лекции «Unit-тестирование»
-
+[![NodeJS with Webpack](https://github.com/Elen87/Unit-pure-functions/actions/workflows/webpack.yml/badge.svg)](https://github.com/Elen87/Unit-pure-functions/actions/workflows/webpack.yml)
 **Важно**: каждая задача выполняется в виде отдельного проекта с собственным GitHub репозиторием.
 
 **Важно**: ESLint не должен выдавать ошибок.
