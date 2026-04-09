@@ -2,6 +2,7 @@
 import getHealthStatus from './health';
 
 const status = getHealthStatus({ name: 'Маг', health: 90 });
+
 console.log(status); // 'healthy'
 
 // Дополнительные примеры для проверки

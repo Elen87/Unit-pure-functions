@@ -1,4 +1,3 @@
-
 module.exports = {
   env: {
     browser: true,
@@ -12,62 +11,100 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    // Отключаем ненужные правила
+    // ===== ОТКЛЮЧАЕМ НЕНУЖНЫЕ ПРАВИЛА =====
     'no-console': 'off',
     'import/prefer-default-export': 'off',
     
-    // Стиль окончаний строк (для Windows)
-    'linebreak-style': ['error', 'windows'],
+    // ===== СТИЛЬ ОКОНЧАНИЙ СТРОК =====
+    'linebreak-style': ['error', 'windows'], // Для Windows
     
-    // Одинарные кавычки
-    'quotes': ['error', 'single'],
+    // ===== КАВЫЧКИ =====
+    'quotes': ['error', 'single', { avoidEscape: true, allowTemplateLiterals: false }],
     
-    // Точки с запятой ОБЯЗАТЕЛЬНЫ (добавлено!)
+    // ===== ТОЧКИ С ЗАПЯТОЙ =====
     'semi': ['error', 'always'],
+    'semi-spacing': ['error', { before: false, after: true }],
+    'semi-style': ['error', 'last'],
     
-    // Отступы 2 пробела
-    'indent': ['error', 2],
+    // ===== ОТСТУПЫ =====
+    'indent': ['error', 2, { SwitchCase: 1, VariableDeclarator: 1, outerIIFEBody: 1 }],
     
-    // Висящие запятые в многострочных объектах
+    // ===== ЗАПЯТЫЕ =====
     'comma-dangle': ['error', 'always-multiline'],
+    'comma-spacing': ['error', { before: false, after: true }],
+    'comma-style': ['error', 'last'],
     
-    // Пустая строка в конце файла
+    // ===== ПУСТЫЕ СТРОКИ =====
     'eol-last': ['error', 'always'],
-    
-    // Нет пробелов в конце строк
     'no-trailing-spaces': 'error',
+    'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1, maxBOF: 0 }],
+    'padded-blocks': ['error', 'never'],
+    'padding-line-between-statements': [
+      'error',
+      { blankLine: 'always', prev: ['const', 'let', 'var'], next: '*' },
+      { blankLine: 'any', prev: ['const', 'let', 'var'], next: ['const', 'let', 'var'] },
+      { blankLine: 'always', prev: '*', next: 'return' },
+    ],
     
-    // Пробелы вокруг операторов
+    // ===== ПРОБЕЛЫ =====
     'space-infix-ops': 'error',
-    
-    // Пробел перед открывающей скобкой
-    'space-before-blocks': 'error',
-    
-    // Пробелы после ключевых слов (if, for, while)
-    'keyword-spacing': 'error',
-    
-    // Нет пробелов внутри скобок
+    'space-before-blocks': ['error', 'always'],
+    'space-before-function-paren': ['error', {
+      anonymous: 'always',
+      named: 'never',
+      asyncArrow: 'always',
+    }],
+    'keyword-spacing': ['error', { before: true, after: true }],
     'space-in-parens': ['error', 'never'],
-    
-    // Пробелы внутри фигурных скобок { a: 1 }
     'object-curly-spacing': ['error', 'always'],
-    
-    // Нет пробелов внутри квадратных скобок [1, 2, 3]
     'array-bracket-spacing': ['error', 'never'],
+    'computed-property-spacing': ['error', 'never'],
+    'func-call-spacing': ['error', 'never'],
+    'arrow-spacing': ['error', { before: true, after: true }],
+    'block-spacing': ['error', 'always'],
     
-    // Не больше 1 пустой строки подряд
-    'no-multiple-empty-lines': ['error', { max: 1 }],
+    // ===== СКОБКИ =====
+    'brace-style': ['error', '1tbs', { allowSingleLine: true }],
+    'arrow-parens': ['error', 'always'],
     
-    // Запрет на var (используйте const/let)
+    // ===== ПЕРЕМЕННЫЕ =====
     'no-var': 'error',
-    
-    // Предпочитать const (если переменная не переопределяется)
     'prefer-const': 'error',
+    'prefer-destructuring': ['error', { VariableDeclarator: { object: true, array: false } }],
+    'no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
+    'no-use-before-define': ['error', { functions: false, classes: true, variables: true }],
+    'one-var': ['error', 'never'],
+    'no-multi-assign': 'error',
+    'no-param-reassign': ['error', { props: false }],
     
-    // Использовать === вместо ==
+    // ===== СРАВНЕНИЯ =====
     'eqeqeq': ['error', 'always'],
-    
-    // Запрет на использование isNaN (используйте Number.isNaN)
+    'no-eq-null': 'error',
     'no-restricted-globals': ['error', 'isNaN'],
+    
+    // ===== ФУНКЦИИ =====
+    'func-style': ['error', 'expression', { allowArrowFunctions: true }],
+    'consistent-return': 'error',
+    'no-useless-return': 'error',
+    'no-return-assign': 'error',
+    
+    // ===== СТРЕЛОЧНЫЕ ФУНКЦИИ =====
+    'prefer-arrow-callback': 'error',
+    'prefer-rest-params': 'error',
+    'prefer-spread': 'error',
+    
+    // ===== СТРОКИ =====
+    'prefer-template': 'error',
+    'template-curly-spacing': ['error', 'never'],
+    
+    // ===== МАКСИМАЛЬНАЯ ДЛИНА СТРОКИ =====
+    'max-len': ['error', { code: 100, ignoreUrls: true, ignoreStrings: true, ignoreTemplateLiterals: true, ignoreComments: true }],
+    
+    // ===== ДРУГИЕ ПРАВИЛА =====
+    'no-magic-numbers': ['warn', { ignore: [0, 1, -1, 50, 15, 100] }],
+    'spaced-comment': ['error', 'always', { exceptions: ['-', '+'] }],
+    'no-console': 'off',
+    'no-debugger': 'error',
+    'no-alert': 'error',
   },
 }

@@ -15,5 +15,6 @@ export default function getHealthStatus(character) {
   if (health >= 15) {
     return 'wounded';
   }
+
   return 'critical';
 }
